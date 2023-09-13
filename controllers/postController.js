@@ -1,6 +1,6 @@
 const sequelize = require('../db/db');
 const Posteo = require('../db/models/post');
-const moment = require('moment');
+const dateUtils = require('../utils/dateUtils.js');
 
 const mostrarCrearPosteo = (req,res) => {
     posteo_a_editar = null;
@@ -30,18 +30,8 @@ const crearPosteo = async(req,res) => {
         posteo_a_editar.link_imagen = link_imagen;
         await posteo_a_editar.save();
     }else{
-        const fecha = new Date();
-        const dia = fecha.getDate().toString().padStart(2, '0'); // Obtén el día y asegúrate de tener 2 dígitos
-        const mes = (fecha.getMonth() + 1).toString().padStart(2, '0'); // Obtén el mes (se suma 1 porque los meses comienzan en 0) y asegúrate de tener 2 dígitos
-        const anio = fecha.getFullYear();
-        
-        const hora = fecha.getHours().toString().padStart(2, '0'); // Obtén la hora y asegúrate de tener 2 dígitos
-        const minutos = fecha.getMinutes().toString().padStart(2, '0'); // Obtén los minutos y asegúrate de tener 2 dígitos
-        const segundos = fecha.getSeconds().toString().padStart(2, '0'); // Obtén los segundos y asegúrate de tener 2 dígitos
-        
-        const fechaFormateada = `${mes}/${dia}/${anio} -  ${hora}:${minutos}:${segundos}`;
-
-        await Posteo.create({titulo:titulo, contenido: contenido, link_imagen: link_imagen, fecha_creacion: fechaFormateada})
+        const fecha = dateUtils.generar_string_fecha();
+        await Posteo.create({titulo:titulo, contenido: contenido, link_imagen: link_imagen, fecha_creacion: fecha })
     }
     res.redirect('/')
 }

@@ -48,15 +48,15 @@
                     <div class="card-body">
                         <form action="<%= posteo_a_editar ? '/crear_posteo/' + posteo_a_editar.id : '/crear_posteo' %>" method="POST">
                             <div class="form-group row">
-                                <label for="email_address" class="col-md-4 col-form-label text-md-right">Titulo</label>
+                                <label for="titulo" class="col-md-4 col-form-label text-lg-right">Titulo</label>
                                 <div class="col-md-6">
-                                    <input type="text" id="titulo" class="form-control" name="titulo" required autofocus value="<%= posteo_a_editar ? posteo_a_editar.titulo : '' %>">
+                                    <input type="text" id="titulo" class="form-control-lg" name="titulo" required autofocus value="<%= posteo_a_editar ? posteo_a_editar.titulo : '' %>">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="contenido" class="col-md-4 col-form-label text-md-right">Contenido</label>
                                 <div class="col-md-6">
-                                    <textarea id="contenido" class="form-control form-control-lg" name="contenido" required autofocus><%= posteo_a_editar ? posteo_a_editar.contenido : '' %></textarea>
+                                    <textarea id="contenido" class="form-control form-control-md" rows="4" name="contenido" required autofocus><%= posteo_a_editar ? posteo_a_editar.contenido : '' %></textarea>
                                 </div>
                             </div>
                             <div class="form-group row">
