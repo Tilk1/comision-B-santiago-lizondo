@@ -9,4 +9,4 @@ Base de datos MySQL:
 Crear una base de datos llamada "foro_db" ,( puede ser con xaamp o la herramienta que prefiera) las credenciales son las que se crean por defecto pero se pueden configurar en el config.json de config
 
 Tecnologias:
-Nodejs express, MySQL, sequelize
+Nodejs express, MySQL, sequelize, boostrap
