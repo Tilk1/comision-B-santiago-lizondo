@@ -6,4 +6,4 @@ Instrucciones:
 - node app
 
 Base de datos MySQL:
-Montar una base de datos llamada "foro_db" , las credenciales son las que se crean por defecto pero se pueden configurar en el config.json de config
+Crear una base de datos llamada "foro_db" ,( puede ser con xaamp o la herramienta que prefiera) las credenciales son las que se crean por defecto pero se pueden configurar en el config.json de config
