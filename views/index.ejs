@@ -1,6 +1,7 @@
 <link rel="stylesheet" href="/css/styles.css" crossorigin="anonymous" />
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+<title>Foro</title>
 <div class="container">
 
             <!-- /POSTEO 1 FIJO -->
@@ -16,16 +17,21 @@
                                 <p class="text-secondary">
                                     Hola quiero darte la bienvenida al foro, este es un mensaje fijo, así que no podrás eliminarlo ni modificarlo. ¡Para esas funciones deberás crear tus propios posteos!
                                 </p>
+                                <p class="text-secondary" style="text-align: center;">
+                                    <p class="text-secondary" style="text-align: center;">
+                                        <img src="/imagenes/hello_there.gif">
+                                    </p>
+                                </p>
                             </div>
                             <div class="text-muted small text-center align-self-center">
-                                <span class="d-none d-sm-inline-block"><i class="far fa-eye"></i> 13/09/2023</span>
+                                <span class="d-none d-sm-inline-block"><i class="far fa-eye"></i> 01/09/2023</span>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             
-            
+            <% posteos.forEach(posteo => { %>
             <!-- /POSTEOS DE LA DB -->
             <div class="inner-main-body p-2 p-sm-3 collapse forum-content show">
                 <div class="card mb-2">
@@ -35,17 +41,33 @@
                                 <img src="/imagenes/user.jpg" class="rounded-circle" width="50" alt="User" />
                             </a>
                             <div class="media-body forum-text">
-                                <h6><a data-toggle="collapse" data-target=".forum-content" class="text-body">Bienvenido al foro</a></h6>
+                                <h6><a data-toggle="collapse" data-target=".forum-content" class="text-body"><%= posteo.titulo %></a></h6>
                                 <p class="text-secondary">
-                                    Hola quiero darte la bienvenida al foro, este es un mensaje fijo, así que no podrás eliminarlo ni modificarlo. ¡Para esas funciones deberás crear tus propios posteos!
+                                    <%= posteo.contenido %>
+                                </p>
+                                <p class="text-secondary" style="text-align: center;">
+                                    <p class="text-secondary" style="text-align: center;">
+                                        <img src="<%= posteo.link_imagen %>">
+                                    </p>
                                 </p>
                             </div>
                             <div class="text-muted small text-center align-self-center">
-                                <span class="d-none d-sm-inline-block"><i class="far fa-eye"></i> 13/09/2023</span>
+                                <span class="d-none d-sm-inline-block"><i class="far fa-eye"></i> <%= posteo.fecha_creacion %></span>
                             </div>
                         </div>
                     </div>
                 </div>
+                <form method="POST" action="/eliminar/<%= posteo.id %>" class="inline-form">
+                    <button type="submit" class="custom-submit-button" onclick="location.reload();" >Eliminar</button>
+                </form>
+                <form method="GET" action="/editar_posteo/<%= posteo.id %>" class="inline-form">
+                    <button type="submit" class="custom-submit-button"> Editar </button>
+                </form>
             </div>
+            <% }); %>
+     
+            <div class="floating-button">
+                <a href="/crear_posteo" class="btn btn-primary">Crear posteo</a>
+              </div>
 
 </div>

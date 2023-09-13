@@ -134,3 +134,40 @@ body{
 .forum-text {
     overflow: hidden; /* Evita que el texto flote alrededor de la imagen */
 }
+
+.floating-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    }
+
+    .floating-button a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    line-height: 30px;
+    text-align: center;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 20px;
+    text-decoration: none;
+    }
+
+    .floating-button a:hover {
+    background-color: #0056b3;
+    }
+
+    .custom-submit-button {
+        background: none;
+        border: none;
+        padding: 0;
+        text-decoration: underline;
+        cursor: pointer;
+        color: blue; /* Cambia el color del texto a tu elección */
+    }
+
+    /* Estilos para los formularios */
+    .inline-form {
+        display: inline-block; /* Mostrar los formularios en línea */
+         margin-right: 10px; /* Añadir un margen entre los formularios si es necesario */
+    }
